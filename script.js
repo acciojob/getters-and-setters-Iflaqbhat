@@ -13,17 +13,12 @@ class Person {
 }
 
 class Student extends Person {
-	
-		super(name, age); // Call the parent class constructor
-	
 	study(){
 		console.log(`${this.name} is studying`)
 	}
 }
 
 class Teacher extends Person {
-	
-		super(name, age); // Call the parent class constructor
 	
 	teach(){
 		console.log(`${this.name} is teaching`)
