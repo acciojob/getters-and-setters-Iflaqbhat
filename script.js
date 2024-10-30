@@ -1,48 +1,53 @@
+// Define the Person class
 class Person {
-  // Private fields
-  #name; // Private variable for name
-  #age;  // Private variable for age
+    constructor(name, age) {
+        this._name = name;  // Use underscore to denote private property
+        this._age = age;
+    }
 
-  constructor(name, age) {
-    this.#name = name;
-    this.#age = age;
-  }
+    // Getter for name
+    get name() {
+        return this._name;
+    }
 
-  // Getter for name
-  get name() {
-    return this.#name;
-  }
+    // Setter for age
+    set age(newAge) {
+        this._age = newAge;
+    }
 
-  // Setter for age
-  set age(value) {
-    this.#age = value;
-  }
-
-  // Getter for age
-  get age() {
-    return this.#age;
-  }
+    // Getter for age (optional, if you want to retrieve age directly)
+    get age() {
+        return this._age;
+    }
 }
 
+// Define the Student class extending Person
 class Student extends Person {
-  constructor(name, age) {
-    super(name, age); // Call the parent class constructor to set name and age
-  }
-
-  study() {
-    console.log(`${this.name} is studying`); // Accessing #name via getter
-  }
+    study() {
+        console.log(`${this.name} is studying`);
+    }
 }
 
+// Define the Teacher class extending Person
 class Teacher extends Person {
-  constructor(name, age) {
-    super(name, age); // Call the parent class constructor to set name and age
-  }
-
-  teach() {
-    console.log(`${this.name} is teaching`); // Accessing #name via getter
-  }
+    teach() {
+        console.log(`${this.name} is teaching`);
+    }
 }
+
+// Example usage:
+const person = new Person("John", 25);
+console.log(person.name); // Output: John
+
+person.age = 30;
+console.log(person.age); // Output: 30
+
+const student = new Student("Alice", 22);
+student.study(); // Output: Alice is studying
+
+const teacher = new Teacher("Bob", 40);
+teacher.teach(); // Output: Bob is teaching
+
 
 // Do not change the code below this line
 window.Person = Person;
